@@ -9,5 +9,6 @@ use Symfony\Component\Console\Application;
 $application = new Application();
 
 $application->add(new Puzzle());
+$application->add(new Day1());
 
 $application->run();
