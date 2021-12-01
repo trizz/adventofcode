@@ -7,6 +7,7 @@ In this repository, you'll find my solutions.
 ## 🛠 Setup and running
 - Run `composer install` to install the dependencies.
 - Run `./aoc21 {day}` to run the solution for a specific day (for example `./aoc21 1` to run the code for day 1)
+- Run `./aoc21 puzzle {day}` to get the description of the puzzle for the specific day.
 - Run `composer test` to automatically validate the solutions.
 
 ## 🧩 Add a new puzzle/solution
