@@ -2,6 +2,8 @@
 
 In this repository, you'll find my solutions.
 
+[![CI](https://github.com/trizz/adventofcode21/actions/workflows/ci.yaml/badge.svg)](https://github.com/trizz/adventofcode21/actions/workflows/ci.yaml)
+
 ## 🛠 Setup and running
 - Run `composer install` to install the dependencies.
 - Run `./aoc21 {day}` to run the solution for a specific day (for example `./aoc21 1` to run the code for day 1)
