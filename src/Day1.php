@@ -2,8 +2,6 @@
 
 namespace AdventOfCode21;
 
-use JetBrains\PhpStorm\ArrayShape;
-
 class Day1 extends AbstractCommand
 {
     /**
