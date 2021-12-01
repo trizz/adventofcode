@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+require __DIR__.'/vendor/autoload.php';
+
+use AdventOfCode21\Day1;
+use AdventOfCode21\Puzzle;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->add(new Puzzle());
+
+$application->run();
