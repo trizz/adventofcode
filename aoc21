@@ -3,6 +3,7 @@
 require __DIR__.'/vendor/autoload.php';
 
 use AdventOfCode21\Day1;
+use AdventOfCode21\Day2;
 use AdventOfCode21\Puzzle;
 use Symfony\Component\Console\Application;
 
@@ -10,5 +11,6 @@ $application = new Application();
 
 $application->add(new Puzzle());
 $application->add(new Day1());
+$application->add(new Day2());
 
 $application->run();
