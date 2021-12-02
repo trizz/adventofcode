@@ -25,22 +25,11 @@ class Day2 extends AbstractCommand
              */
             [$direction, $distance] = explode(' ', $current);
 
-            switch ($direction) {
-                case 'forward':
-                    $horizontal += $distance;
-
-                    break;
-
-                case 'down':
-                    $depth += $distance;
-
-                    break;
-
-                case 'up':
-                    $depth -= $distance;
-
-                    break;
-            }
+            match ($direction) {
+                'forward' => $horizontal += $distance,
+                'down' => $depth += $distance,
+                'up' => $depth -= $distance,
+            };
         }
 
         return $depth * $horizontal;
@@ -63,6 +52,7 @@ class Day2 extends AbstractCommand
              */
             [$direction, $distance] = explode(' ', $current);
 
+            // Can't use 'match' here because of the multiple expressions for 'forward'.
             switch ($direction) {
                 case 'forward':
                     $horizontal += $distance;
