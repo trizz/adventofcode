@@ -17,13 +17,13 @@ abstract class AbstractCommand extends Command
      * @var string[] The data to use.
      * @psalm-suppress PropertyNotSetInConstructor
      */
-    protected array $data;
+    protected ?array $data = null;
 
     /**
      * @var string[] The example data.
      * @psalm-suppress PropertyNotSetInConstructor
      */
-    protected array $exampleData;
+    protected ?array $exampleData = null;
 
     /**
      * @var string The title.
@@ -102,7 +102,7 @@ abstract class AbstractCommand extends Command
     /**
      * Solve the given data for part one of the puzzle.
      *
-     * @param array $data The data to process.
+     * @param string[] $data The data to process.
      *
      * @return int|string The result or null if not (yet?) implemented.
      */
@@ -114,7 +114,7 @@ abstract class AbstractCommand extends Command
     /**
      * Solve the given data for part one of the puzzle.
      *
-     * @param array $data The data to process.
+     * @param string[] $data The data to process.
      *
      * @return int|string The result or null if not (yet?) implemented.
      */

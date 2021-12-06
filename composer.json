@@ -34,6 +34,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit ./tests --testdox",
-        "style": "vendor/bin/php-cs-fixer fix"
+        "style": "vendor/bin/php-cs-fixer fix",
+        "psalm": "vendor/bin/psalm"
     }
 }

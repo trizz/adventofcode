@@ -17,7 +17,6 @@ class Day2 extends AbstractCommand
         $depth = 0;
         $horizontal = 0;
 
-        /** @var string $current */
         foreach ($data as $current) {
             /**
              * @var string $direction
@@ -44,7 +43,6 @@ class Day2 extends AbstractCommand
         $depth = 0;
         $horizontal = 0;
 
-        /** @var string $current */
         foreach ($data as $current) {
             /**
              * @var string $direction

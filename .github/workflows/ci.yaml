@@ -57,4 +57,4 @@ jobs:
         uses: php-actions/composer@v5
 
       - name: Run Psalm
-        run: ./vendor/bin/psalm --output-format=github
+        run: composer psalm -- --output-format=github
