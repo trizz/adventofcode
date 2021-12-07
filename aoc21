@@ -6,6 +6,7 @@ use AdventOfCode21\Day1;
 use AdventOfCode21\Day2;
 use AdventOfCode21\Day3;
 use AdventOfCode21\Day4;
+use AdventOfCode21\Day6;
 use AdventOfCode21\Puzzle;
 use Symfony\Component\Console\Application;
 
@@ -16,5 +17,6 @@ $application->add(new Day1());
 $application->add(new Day2());
 $application->add(new Day3());
 $application->add(new Day4());
+$application->add(new Day6());
 
 $application->run();
