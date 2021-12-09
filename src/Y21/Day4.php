@@ -13,6 +13,22 @@ class Day4 extends Solution
     public static int|string|null $part2Result = 17435;
 
     /**
+     * {@inheritdoc}
+     */
+    public function part1(array $data): int|string
+    {
+        return $this->playBingo($data, firstWins: true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function part2(array $data): int|string
+    {
+        return $this->playBingo($data, firstWins: false);
+    }
+
+    /**
      * @param int[] $winningCard
      * @param int   $number
      * @psalm-param array<int, array<array-key, bool|int>|string> $winningCard
@@ -28,22 +44,6 @@ class Day4 extends Solution
         $unusedNumbers = array_keys(array_filter($return, static fn (bool $value) => !$value));
 
         return (int) array_sum($unusedNumbers) * $number;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function part1(array $data): int|string
-    {
-        return $this->playBingo($data, firstWins: true);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function part2(array $data): int|string
-    {
-        return $this->playBingo($data, firstWins: false);
     }
 
     /**

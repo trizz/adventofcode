@@ -11,7 +11,7 @@ class Str
      */
     public static function matchesAll(string $one, string $two): bool
     {
-        for ($index = 0, $length = strlen($two); $index < $length; $index++) {
+        for ($index = 0, $length = strlen($two); $index < $length; ++$index) {
             if (!str_contains($one, $two[$index])) {
                 return false;
             }

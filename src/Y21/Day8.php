@@ -38,7 +38,7 @@ class Day8 extends Solution
             )
         );
 
-        return (count(array_intersect($values, [2, 4, 3, 7])));
+        return count(array_intersect($values, [2, 4, 3, 7]));
     }
 
     public function part2(array $data): int|string
@@ -89,26 +89,26 @@ class Day8 extends Solution
             8 => static fn (string $pattern) => strlen($pattern) === 7,
             // 9 is 6 segments, matches segments for 4
             9 => fn (string $pattern) => strlen($pattern) === 6 && Str::matchesAll(
-                    $pattern,
-                    $this->digitPatterns[4] ?? ''
-                ),
+                $pattern,
+                $this->digitPatterns[4] ?? ''
+            ),
             // 0 is 6 segments, matching 1's segments (9 is already out)
             0 => fn (string $pattern) => strlen($pattern) === 6 && Str::matchesAll(
-                    $pattern,
-                    $this->digitPatterns[1] ?? ''
-                ),
+                $pattern,
+                $this->digitPatterns[1] ?? ''
+            ),
             // 6 is 6 segments, the only one left
             6 => static fn (string $pattern) => strlen($pattern) === 6,
             // 3 is 5 segments and matches 1's segments
             3 => fn (string $pattern) => strlen($pattern) === 5 && Str::matchesAll(
-                    $pattern,
-                    $this->digitPatterns[1] ?? ''
-                ),
+                $pattern,
+                $this->digitPatterns[1] ?? ''
+            ),
             // 5 is 5 segments, and 9 has all the segments of 5
             5 => fn (string $pattern) => strlen($pattern) === 5 && Str::matchesAll(
-                    $this->digitPatterns[9] ?? '',
-                    $pattern
-                ),
+                $this->digitPatterns[9] ?? '',
+                $pattern
+            ),
             // 2 is the only one remaining
             2 => static fn (string $pattern) => true,
         ];
@@ -122,6 +122,7 @@ class Day8 extends Solution
                 unset($patterns[$key]);
                 $this->patternDigits[$pattern] = $digit;
                 $this->digitPatterns[$digit] = $pattern;
+
                 break;
             }
         }
