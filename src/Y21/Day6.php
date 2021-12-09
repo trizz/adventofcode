@@ -4,7 +4,6 @@ namespace trizz\AdventOfCode\Y21;
 
 use trizz\AdventOfCode\Solution;
 use JetBrains\PhpStorm\Immutable;
-use trizz\AdventOfCode\Solution;
 
 class Day6 extends Solution
 {
