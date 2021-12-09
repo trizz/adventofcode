@@ -2,11 +2,11 @@
 
 namespace trizz\AdventOfCode;
 
+use trizz\AdventOfCode\Utils\SymfonyConsoleMarkdown;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use trizz\AdventOfCode\Utils\SymfonyConsoleMarkdown;
 
 class Puzzle extends Command
 {
@@ -14,7 +14,8 @@ class Puzzle extends Command
     {
         $this
             ->setName('puzzle')
-            ->addArgument('day', InputArgument::REQUIRED, 'The day number.');
+            ->addArgument('day', InputArgument::REQUIRED, 'The day number.')
+            ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
     }
 
     /**
@@ -22,7 +23,14 @@ class Puzzle extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $contents = file_get_contents(sprintf('%s/../data/day%s/puzzle.md', __DIR__, (int) $input->getArgument('day')));
+        $contents = file_get_contents(
+            sprintf(
+                '%s/../data/Y%d/day%s/puzzle.md',
+                __DIR__,
+                $input->getArgument('year'),
+                (int) $input->getArgument('day')
+            )
+        );
         $rendered = (new SymfonyConsoleMarkdown())->render($contents);
 
         $output->writeln($rendered);

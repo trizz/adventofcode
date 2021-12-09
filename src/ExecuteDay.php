@@ -9,13 +9,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ExecuteDay extends Command
 {
-    protected int $day;
-
-    protected int $year;
     /**
      * @var string The title.
      */
     private string $title;
+
+    protected int $day;
+
+    protected int $year;
 
     /**
      * Configure the command.
