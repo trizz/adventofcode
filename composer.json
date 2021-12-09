@@ -11,8 +11,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "symfony/console": "^5",
         "ext-mbstring": "*",
+        "symfony/console": "^5",
         "cebe/markdown": "^1.2"
     },
     "require-dev": {
@@ -36,5 +36,9 @@
         "test": "vendor/bin/phpunit ./tests --testdox",
         "style": "vendor/bin/php-cs-fixer fix",
         "psalm": "vendor/bin/psalm --no-cache"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }

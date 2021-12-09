@@ -23,5 +23,7 @@ return $config
         'ternary_to_null_coalescing' => true,
         'array_syntax' => ['syntax' => 'short'],
         'php_unit_test_class_requires_covers' => false,
+        'single_line_comment_style' => false,
+        'phpdoc_to_comment' => false,
     ])
     ->setFinder($finder);
