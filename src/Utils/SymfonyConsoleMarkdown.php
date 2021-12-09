@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AdventOfCode21\Utils;
+namespace trizz\AdventOfCode\Utils;
 
 use cebe\markdown\GithubMarkdown;
 use function explode;

@@ -1,18 +1,21 @@
 <?php
 
-namespace AdventOfCode21;
+namespace trizz\AdventOfCode\Y21;
 
-class Day1 extends AbstractCommand
+use trizz\AdventOfCode\Solution;
+
+class Day1 extends Solution
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected static int $day = 1;
+    public static int|string|null $part1ExampleResult = 7;
+    public static int|string|null $part1Result = 1688;
+
+    public static int|string|null $part2ExampleResult = 5;
+    public static int|string|null $part2Result = 1728;
 
     /**
      * {@inheritdoc}
      */
-    protected function part1(array $data): int
+    public function part1(array $data): int
     {
         $previous = null;
         $increases = 0;
@@ -32,7 +35,7 @@ class Day1 extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function part2(array $data): int
+    public function part2(array $data): int
     {
         $previousSum = null;
         $increases = 0;

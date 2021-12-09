@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.0']
+        php-versions: ['8.1']
 
     steps:
       - name: Checkout code
@@ -40,14 +40,14 @@ jobs:
       - name: Run PHPUnit tests
         run: composer test
 
-  psalm:
-    name: Psalm (PHP ${{ matrix.php-versions }})
+  phpstan:
+    name: phpstan (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.0']
+        php-versions: ['8.1']
 
     steps:
       - name: Checkout code
@@ -56,5 +56,5 @@ jobs:
       - name: Composer install
         uses: php-actions/composer@v5
 
-      - name: Run Psalm
-        run: composer psalm -- --output-format=github
+      - name: Run phpstan
+        run: composer phpstan

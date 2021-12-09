@@ -1,13 +1,16 @@
 <?php
 
-namespace AdventOfCode21;
+namespace trizz\AdventOfCode\Y21;
 
-class Day4 extends AbstractCommand
+use trizz\AdventOfCode\Solution;
+
+class Day4 extends Solution
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected static int $day = 4;
+    public static int|string|null $part1ExampleResult = 4512;
+    public static int|string|null $part1Result = 60368;
+
+    public static int|string|null $part2ExampleResult = 1924;
+    public static int|string|null $part2Result = 17435;
 
     /**
      * @param int[] $winningCard
@@ -30,7 +33,7 @@ class Day4 extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function part1(array $data): int|string
+    public function part1(array $data): int|string
     {
         return $this->playBingo($data, firstWins: true);
     }
@@ -38,7 +41,7 @@ class Day4 extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function part2(array $data): int|string
+    public function part2(array $data): int|string
     {
         return $this->playBingo($data, firstWins: false);
     }

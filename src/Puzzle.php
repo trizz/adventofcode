@@ -1,8 +1,8 @@
 <?php
 
-namespace AdventOfCode21;
+namespace trizz\AdventOfCode;
 
-use AdventOfCode21\Utils\SymfonyConsoleMarkdown;
+use trizz\AdventOfCode\Utils\SymfonyConsoleMarkdown;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

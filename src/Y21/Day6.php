@@ -1,15 +1,17 @@
 <?php
 
-namespace AdventOfCode21;
+namespace trizz\AdventOfCode\Y21;
 
+use trizz\AdventOfCode\Solution;
 use JetBrains\PhpStorm\Immutable;
 
-class Day6 extends AbstractCommand
+class Day6 extends Solution
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected static int $day = 6;
+    public static int|string|null $part1ExampleResult = 5934;
+    public static int|string|null $part1Result = 350917;
+
+    public static int|string|null $part2ExampleResult = 26984457539;
+    public static int|string|null $part2Result = 1592918715629;
 
     /**
      * @var int[]
@@ -31,7 +33,7 @@ class Day6 extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function part1(array $data): int
+    public function part1(array $data): int
     {
         return $this->processPuzzle(80, $data[0]);
     }
@@ -39,7 +41,7 @@ class Day6 extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function part2(array $data): int
+    public function part2(array $data): int
     {
         return $this->processPuzzle(256, $data[0]);
     }

@@ -1,18 +1,22 @@
 <?php
 
-namespace AdventOfCode21;
+namespace trizz\AdventOfCode\Y21;
 
-class Day7 extends AbstractCommand
+use trizz\AdventOfCode\ExecuteDay;
+use trizz\AdventOfCode\Solution;
+
+class Day7 extends Solution
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected static int $day = 7;
+    public static int|string|null $part1ExampleResult = 37;
+    public static int|string|null $part1Result = 344297;
+
+    public static int|string|null $part2ExampleResult = 168;
+    public static int|string|null $part2Result = 97164301;
 
     /**
      * {@inheritdoc}
      */
-    protected function part1(array $data): int
+    public function part1(array $data): int
     {
         return $this->calculateFuel($data[0], forPart2: false);
     }
@@ -20,7 +24,7 @@ class Day7 extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function part2(array $data): int
+    public function part2(array $data): int
     {
         return $this->calculateFuel($data[0], forPart2: true);
     }
