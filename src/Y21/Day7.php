@@ -2,7 +2,6 @@
 
 namespace trizz\AdventOfCode\Y21;
 
-use trizz\AdventOfCode\ExecuteDay;
 use trizz\AdventOfCode\Solution;
 
 class Day7 extends Solution

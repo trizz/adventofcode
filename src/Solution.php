@@ -3,9 +3,6 @@
 namespace trizz\AdventOfCode;
 
 use JetBrains\PhpStorm\ArrayShape;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class Solution
 {
@@ -93,7 +90,7 @@ abstract class Solution
         return !empty($this->exampleData);
     }
 
-    #[ArrayShape(['part1' => "int|string", 'part2' => "int|string"])]
+    #[ArrayShape(['part1' => 'int|string', 'part2' => 'int|string'])]
     public function results(bool $useExampleData = true): array
     {
         $data = $useExampleData ? $this->exampleData : $this->data;

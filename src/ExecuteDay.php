@@ -9,14 +9,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ExecuteDay extends Command
 {
+    protected int $day;
+
+    protected int $year;
     /**
      * @var string The title.
      */
     private string $title;
-
-    protected int $day;
-
-    protected int $year;
 
     /**
      * Configure the command.
@@ -53,7 +52,7 @@ class ExecuteDay extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $className = sprintf("%s\\Y%d\\Day%d", __NAMESPACE__, $this->year, $this->day);
+        $className = sprintf('%s\\Y%d\\Day%d', __NAMESPACE__, $this->year, $this->day);
         /** @var Solution $class */
         $class = new $className();
         $class->loadData();
