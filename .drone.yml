@@ -1,0 +1,23 @@
+kind: docker
+name: default
+
+steps:
+- name: install
+  image: composer
+  commands:
+  - composer install
+
+- name: phpstan
+  image: php:8
+  commands:
+  - vendor/bin/phpstan analyse
+
+- name: phpunit
+  image: php:8
+  commands:
+  - vendor/bin/phpunit
+
+- name: style check
+  image: php:8
+  commands:
+  - PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix
