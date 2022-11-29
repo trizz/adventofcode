@@ -1,27 +1,27 @@
 # Advent of Code
 
-In this repository, you'll find my solutions.
+[![Build Status](https://drone.trizz.io/api/badges/trizz/adventofcode/status.svg)](https://drone.trizz.io/trizz/adventofcode)
 
-[![CI](https://github.com/trizz/adventofcode21/actions/workflows/ci.yaml/badge.svg)](https://github.com/trizz/adventofcode21/actions/workflows/ci.yaml)
+In this repository, you'll find my Advent of Code framework and solutions. If you want to
+use this framework for your own solution, just remove all data in the `./data` folder and all
+folders for each year in the `./src` folder (for example `./src/Y21`, `./src/Y22`, etc.)
 
 ## 🛠 Setup and running
 - Run `composer install` to install the dependencies.
-- Run `./aoc {day} {year?}` to run the solution for a specific day. If year is not given, use the current year (for example `./aoc 1` to run the code for day 1 2021)
-- Run `./aoc21 puzzle {day} {year?}` to get the description of the puzzle for the specific day.
+- Run `./aoc day {day} {year?}` to run the solution for a specific day. If year is not given, use the current year (for example `./aoc day 1` to run the code for day 1 2022)
+- Run `./aoc puzzle {day} {year?}` to get the description of the puzzle for the specific day.
 - Run `composer test` to automatically validate the solutions.
 
 ## 🧩 Add a new puzzle/solution
 - Create a directory in `./data/Y??/day?` with the correct name.
   - Create `example.txt` with the example values from the puzzle.
   - Create `data.txt` with your personal input.
-  - Create `puzzle.md` with the puzzle. You can use [this plugin](https://github.com/kfarnung/aoc-to-markdown) to easily convert the puzzle to markdown.
-- Create a new class in the `src/Y??/` directory and make sure it has the  structure defined below.
-- Add this class to the `./aoc` file, and you can run it.
-- Add a new test in `./tests` with structure defined below.
+  - Create `puzzle.md` with the puzzle description. You can use [this plugin](https://github.com/kfarnung/aoc-to-markdown) to easily convert the puzzle to markdown.
+- Create a new class in the `src/Y??/Day??.php` directory and make sure it has the structure defined below.
 - Run `composer test` to run all the tests.
 
 <details>
-  <summary>Solution command structure</summary>
+  <summary>Solution structure</summary>
 
 ```php
 <?php
