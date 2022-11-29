@@ -4,10 +4,11 @@ namespace trizz\AdventOfCode\Y21;
 
 use trizz\AdventOfCode\Solution;
 
-class Day3 extends Solution
+final class Day3 extends Solution
 {
     public static int|string|null $part1ExampleResult = 198;
-    public static int|string|null $part1Result = 3309596;
+
+    public static int|string|null $part1Result = 3_309_596;
 
     /**
      * {@inheritdoc}
@@ -27,9 +28,9 @@ class Day3 extends Solution
         $gammaRate = '';
         $epsilonRate = '';
 
-        foreach ($bits as $values) {
-            $zeros = array_filter($values, static fn ($value) => $value === '0');
-            $ones = array_filter($values, static fn ($value) => $value === '1');
+        foreach ($bits as $bit) {
+            $zeros = array_filter($bit, static fn ($value) => $value === '0');
+            $ones = array_filter($bit, static fn ($value) => $value === '1');
 
             $gammaRate .= ($ones > $zeros) ? '1' : '0';
             $epsilonRate .= ($ones < $zeros) ? '1' : '0';

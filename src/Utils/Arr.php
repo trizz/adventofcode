@@ -2,7 +2,7 @@
 
 namespace trizz\AdventOfCode\Utils;
 
-class Arr
+final class Arr
 {
     /**
      * Flatten a multi-dimensional array into a single level.
@@ -11,12 +11,11 @@ class Arr
      *
      * @see https://github.com/laravel/framework/blob/c16367a1af68d8f3a1addc1a819f9864334e2c66/src/Illuminate/Collections/Arr.php#L221-L249
      *
-     * @param iterable  $array
-     * @param float|int $depth
+     * @param array<mixed> $array
      *
-     * @return array
+     * @return array<mixed>
      */
-    public static function flatten(iterable $array, float|int $depth = INF)
+    public static function flatten(iterable $array, float|int $depth = INF): array
     {
         $result = [];
 

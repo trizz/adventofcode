@@ -1,0 +1,54 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  PHP_IMAGE: php:8.1
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+    silent: true
+
+  check:
+    cmds:
+      - task: echo_title
+        vars: {TITLE: Running php-cs-fixer...}
+      - task: style
+      - task: echo_title
+        vars: {TITLE: Running phpstan...}
+      - task: phpstan
+      - task: echo_title
+        vars: { TITLE: Running rector... }
+      - task: rector
+      - task: echo_title
+        vars: {TITLE: Running phpunit}
+      - task: phpunit
+
+  style:
+    cmds:
+      - php vendor/bin/php-cs-fixer fix
+    silent: true
+
+  phpstan:
+    cmds:
+      - php vendor/bin/phpstan --configuration=./phpstan.neon analyse
+    silent: true
+
+  rector:
+    cmds:
+      - php vendor/bin/rector process
+    silent: true
+
+  phpunit:
+    cmds:
+      - php vendor/bin/phpunit
+    silent: true
+
+  echo_title:
+    silent: true
+    cmds:
+      - echo ------------------------
+      - echo {{.TITLE}}
+      - echo ------------------------

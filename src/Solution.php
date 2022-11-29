@@ -16,12 +16,14 @@ abstract class Solution
 
     /**
      * @var string[] The data to use.
+     *
      * @psalm-suppress PropertyNotSetInConstructor
      */
     public ?array $data = null;
 
     /**
      * @var string[] The example data.
+     *
      * @psalm-suppress PropertyNotSetInConstructor
      */
     public ?array $exampleData = null;
@@ -50,7 +52,7 @@ abstract class Solution
         return 'n/a';
     }
 
-    public function loadData()
+    public function loadData(): void
     {
         $dataFile = sprintf('%s/../data/Y%d/day%d/data.txt', __DIR__, $this->year(), $this->day());
         $dataExampleFile = sprintf('%s/../data/Y%d/day%d/example.txt', __DIR__, $this->year(), $this->day());
@@ -80,16 +82,19 @@ abstract class Solution
         return (int) substr(explode('\\', static::class)[3], 3);
     }
 
-    public function hasData()
+    public function hasData(): bool
     {
         return !empty($this->data);
     }
 
-    public function hasExampleData()
+    public function hasExampleData(): bool
     {
         return !empty($this->exampleData);
     }
 
+    /**
+     * @return array{part1: int|string, part2: int|string}
+     */
     #[ArrayShape(['part1' => 'int|string', 'part2' => 'int|string'])]
     public function results(bool $useExampleData = true): array
     {

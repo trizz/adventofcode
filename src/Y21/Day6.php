@@ -5,20 +5,22 @@ namespace trizz\AdventOfCode\Y21;
 use JetBrains\PhpStorm\Immutable;
 use trizz\AdventOfCode\Solution;
 
-class Day6 extends Solution
+final class Day6 extends Solution
 {
     public static int|string|null $part1ExampleResult = 5934;
+
     public static int|string|null $part1Result = 350917;
 
-    public static int|string|null $part2ExampleResult = 26984457539;
-    public static int|string|null $part2Result = 1592918715629;
+    public static int|string|null $part2ExampleResult = 26_984_457_539;
+
+    public static int|string|null $part2Result = 1_592_918_715_629;
 
     /**
      * @var int[]
+     *
      * @psalm-param array{int: int}
      */
-    #[Immutable]
-    protected array $startState = [
+    #[Immutable] private array $startState = [
         8 => 0,
         7 => 0,
         6 => 0,
@@ -48,11 +50,10 @@ class Day6 extends Solution
 
     /**
      * @param int[] $state
-     * @psalm-param array{int: int} $state
      *
-     * @return array
+     * @psalm-param array{int: int} $state
      */
-    protected function processDay(array $state): array
+    private function processDay(array $state): array
     {
         $newState = $state;
 
@@ -75,11 +76,11 @@ class Day6 extends Solution
         return $newState;
     }
 
-    protected function processPuzzle(int $numberOfDays, string $data): int
+    private function processPuzzle(int $numberOfDays, string $data): int
     {
         $state = $this->startState;
 
-        array_map(static function (string $stateValue) use (&$state) {
+        array_map(static function (string $stateValue) use (&$state): void {
             ++$state[(int) $stateValue];
         }, explode(',', $data));
 

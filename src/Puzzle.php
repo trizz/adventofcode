@@ -2,25 +2,23 @@
 
 namespace trizz\AdventOfCode;
 
+use PhpPkg\CliMarkdown\CliMarkdown;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use trizz\AdventOfCode\Utils\SymfonyConsoleMarkdown;
 
-class Puzzle extends Command
+final class Puzzle extends Command
 {
     protected function configure(): void
     {
         $this
             ->setName('puzzle')
+            ->setDescription('Show the puzzle description.')
             ->addArgument('day', InputArgument::REQUIRED, 'The day number.')
             ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
     }
 
-    /**
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contents = file_get_contents(
@@ -31,7 +29,14 @@ class Puzzle extends Command
                 (int) $input->getArgument('day')
             )
         );
-        $rendered = (new SymfonyConsoleMarkdown())->render($contents);
+
+        if (!$contents) {
+            $output->writeln('Can not read puzzle.');
+
+            return Command::FAILURE;
+        }
+
+        $rendered = (new CliMarkdown())->render($contents);
 
         $output->writeln($rendered);
 

@@ -6,7 +6,7 @@ use trizz\AdventOfCode\Solution;
 use trizz\AdventOfCode\Utils\Arr;
 use trizz\AdventOfCode\Utils\Str;
 
-class Day8 extends Solution
+final class Day8 extends Solution
 {
     public static int|string|null $part1ExampleResult = 26;
 
@@ -14,7 +14,7 @@ class Day8 extends Solution
 
     public static int|string|null $part2ExampleResult = 61229;
 
-    public static int|string|null $part2Result = 1027422;
+    public static int|string|null $part2Result = 1_027_422;
 
     private array $digitPatterns;
 
@@ -26,7 +26,7 @@ class Day8 extends Solution
     public function part1(array $data): int
     {
         $values = array_map(
-            static fn ($item) => strlen($item),
+            static fn ($item) => strlen((string) $item),
             Arr::flatten(
                 array_map(
                     static fn ($item) => explode(' ', $item),
@@ -48,8 +48,8 @@ class Day8 extends Solution
         foreach ($data as $line) {
             $item = explode(' | ', $line);
             $sequences[] = [
-                'patterns' => array_map([Str::class, 'sort'], explode(' ', $item[0])),
-                'shown' => array_map([Str::class, 'sort'], explode(' ', $item[1])),
+                'patterns' => array_map(Str::sort(...), explode(' ', $item[0])),
+                'shown' => array_map(Str::sort(...), explode(' ', $item[1])),
             ];
         }
 

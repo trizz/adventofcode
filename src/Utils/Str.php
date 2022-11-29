@@ -2,7 +2,7 @@
 
 namespace trizz\AdventOfCode\Utils;
 
-class Str
+final class Str
 {
     /**
      * Check if the entirety of string two matches string one.

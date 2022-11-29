@@ -14,7 +14,6 @@ return $config
         'phpdoc_order' => true,
         'ordered_class_elements' => true,
         'multiline_whitespace_before_semicolons' => false,
-        'no_superfluous_phpdoc_tags' => false,
         'phpdoc_annotation_without_dot' => false,
         'phpdoc_types_order' => [
             'null_adjustment' => 'always_last',

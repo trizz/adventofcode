@@ -7,19 +7,14 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ExecuteDay extends Command
+final class ExecuteDay extends Command
 {
-    protected int $day;
+    private int $day;
 
-    protected int $year;
-    /**
-     * @var string The title.
-     */
+    private int $year;
+
     private string $title;
 
-    /**
-     * Configure the command.
-     */
     protected function configure(): void
     {
         $this
@@ -29,10 +24,6 @@ class ExecuteDay extends Command
             ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
     }
 
-    /**
-     * Initializes the command after the input has been bound and before the input
-     * is validated.
-     */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->day = $input->getArgument('day');
@@ -45,14 +36,10 @@ class ExecuteDay extends Command
         $output->writeln(str_repeat('-', strlen($this->title)));
     }
 
-    /**
-     * Executes the current command.
-     *
-     * @return int 0 if everything went fine, or an exit code
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $className = sprintf('%s\\Y%d\\Day%d', __NAMESPACE__, $this->year, $this->day);
+
         /** @var Solution $class */
         $class = new $className();
         $class->loadData();

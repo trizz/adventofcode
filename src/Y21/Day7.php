@@ -4,13 +4,15 @@ namespace trizz\AdventOfCode\Y21;
 
 use trizz\AdventOfCode\Solution;
 
-class Day7 extends Solution
+final class Day7 extends Solution
 {
     public static int|string|null $part1ExampleResult = 37;
+
     public static int|string|null $part1Result = 344297;
 
     public static int|string|null $part2ExampleResult = 168;
-    public static int|string|null $part2Result = 97164301;
+
+    public static int|string|null $part2Result = 97_164_301;
 
     /**
      * {@inheritdoc}
@@ -28,15 +30,10 @@ class Day7 extends Solution
         return $this->calculateFuel($data[0], forPart2: true);
     }
 
-    /**
-     * @param string $data
-     * @param bool   $forPart2
-     *
-     * @return int
-     */
-    protected function calculateFuel(string $data, bool $forPart2 = false): int
+    private function calculateFuel(string $data, bool $forPart2 = false): int
     {
         $crabs = array_map(static fn (string $crab) => (int) $crab, explode(',', $data));
+
         /** @psalm-param array{int: int} $fuelPerPosition */
         $fuelPerPosition = [];
 

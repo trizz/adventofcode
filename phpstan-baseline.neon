@@ -1,0 +1,56 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:arrayHasSingleValue\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day4.php
+
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:checkCards\\(\\) has parameter \\$cards with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day4.php
+
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:checkCards\\(\\) has parameter \\$finishedCards with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day4.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_values expects array, array\\<mixed, int\\|false\\>\\|string given\\.$#"
+			count: 1
+			path: src/Y21/Day4.php
+
+		-
+			message: "#^Parameter \\#1 \\$numberList of method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:explodeNumbers\\(\\) expects string, array\\<mixed, int\\|false\\>\\|string given\\.$#"
+			count: 1
+			path: src/Y21/Day4.php
+
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day6\\:\\:processDay\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day6.php
+
+		-
+			message: "#^Parameter \\#1 \\$state of method trizz\\\\AdventOfCode\\\\Y21\\\\Day6\\:\\:processDay\\(\\) expects array\\{int\\: int\\}, array given\\.$#"
+			count: 1
+			path: src/Y21/Day6.php
+
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day7\\:\\:calculateFuel\\(\\) should return int but returns int\\<0, max\\>\\|false\\.$#"
+			count: 1
+			path: src/Y21/Day7.php
+
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:mapDigits\\(\\) has parameter \\$patterns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day8.php
+
+		-
+			message: "#^Property trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:\\$digitPatterns type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day8.php
+
+		-
+			message: "#^Property trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:\\$patternDigits type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Y21/Day8.php

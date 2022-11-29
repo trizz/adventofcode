@@ -4,13 +4,15 @@ namespace trizz\AdventOfCode\Y21;
 
 use trizz\AdventOfCode\Solution;
 
-class Day2 extends Solution
+final class Day2 extends Solution
 {
     public static int|string|null $part1ExampleResult = 150;
-    public static int|string|null $part1Result = 1654760;
+
+    public static int|string|null $part1Result = 1_654_760;
 
     public static int|string|null $part2ExampleResult = 900;
-    public static int|string|null $part2Result = 1956047400;
+
+    public static int|string|null $part2Result = 1_956_047_400;
 
     /**
      * {@inheritdoc}

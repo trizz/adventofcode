@@ -7,11 +7,15 @@ use Symfony\Component\Console\Application;
 use trizz\AdventOfCode\ExecuteDay;
 use trizz\AdventOfCode\Puzzle;
 
-(new CollisionProvider)->register();
+(new CollisionProvider())->register();
 
-$application = new Application();
+$application = new Application('Advent of Code by trizz');
 
 $application->add(new Puzzle());
 $application->add(new ExecuteDay());
 
-$application->run();
+try {
+    $application->run();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}

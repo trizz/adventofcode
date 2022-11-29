@@ -4,12 +4,14 @@ namespace trizz\AdventOfCode\Y21;
 
 use trizz\AdventOfCode\Solution;
 
-class Day4 extends Solution
+final class Day4 extends Solution
 {
     public static int|string|null $part1ExampleResult = 4512;
+
     public static int|string|null $part1Result = 60368;
 
     public static int|string|null $part2ExampleResult = 1924;
+
     public static int|string|null $part2Result = 17435;
 
     /**
@@ -30,15 +32,13 @@ class Day4 extends Solution
 
     /**
      * @param int[] $winningCard
-     * @param int   $number
-     * @psalm-param array<int, array<array-key, bool|int>|string> $winningCard
      *
-     * @return int
+     * @psalm-param array<int, array<array-key, bool|int>|string> $winningCard
      */
-    protected function calculateScore(array $winningCard, int $number): int
+    private function calculateScore(array $winningCard, int $number): int
     {
         $return = [];
-        array_walk_recursive($winningCard, static function (bool $value, int $key) use (&$return) {
+        array_walk_recursive($winningCard, static function (bool $value, int $key) use (&$return): void {
             $return[$key] = $value;
         });
         $unusedNumbers = array_keys(array_filter($return, static fn (bool $value) => !$value));
@@ -47,14 +47,13 @@ class Day4 extends Solution
     }
 
     /**
-     * @param string $numberList
-     * @param string $separator
+     * @param non-empty-string $separator
      *
      * @return int[]
      *
      * @psalm-return array<int, int>
      */
-    protected function explodeNumbers(string $numberList, string $separator): array
+    private function explodeNumbers(string $numberList, string $separator): array
     {
         return array_map(
             static fn ($value) => (int) $value,
@@ -67,13 +66,10 @@ class Day4 extends Solution
 
     /**
      * @param string[] $data
-     * @param bool     $firstWins
-     *
-     * @return int|string
      */
-    protected function playBingo(array $data, bool $firstWins = true): int|string
+    private function playBingo(array $data, bool $firstWins = true): int|string
     {
-        $numbers = $this->explodeNumbers(array_shift($data), ',');
+        $numbers = $this->explodeNumbers(array_shift($data) ?? '', ',');
         $cards = $this->setupCards($data);
         $finishedCards = [];
 
@@ -129,7 +125,7 @@ class Day4 extends Solution
      *
      * @psalm-return array<int, array<int, array<false|int>|string>>
      */
-    protected function setupCards(array $data): array
+    private function setupCards(array $data): array
     {
         $cards = array_chunk($data, 5);
         foreach ($cards as $card => $rows) {
@@ -148,7 +144,7 @@ class Day4 extends Solution
      *
      * @psalm-return list<int>
      */
-    protected function checkCards(array $cards, array $finishedCards): array
+    private function checkCards(array $cards, array $finishedCards): array
     {
         $winningCards = [];
         // Check rows
@@ -191,7 +187,7 @@ class Day4 extends Solution
         return $winningCards;
     }
 
-    protected function arrayHasSingleValue(array $array, bool $value): bool
+    private function arrayHasSingleValue(array $array, bool $value): bool
     {
         return count(array_unique($array)) === 1 && end($array) === $value;
     }
