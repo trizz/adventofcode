@@ -15,6 +15,11 @@ abstract class Solution
     public static int|string|null $part2Result = null;
 
     /**
+     * @var bool When false, do not apply the `array_filter` function when the data is loaded.
+     */
+    public bool $filterDataOnLoad = true;
+
+    /**
      * @var string[] The data to use.
      *
      * @psalm-suppress PropertyNotSetInConstructor
@@ -60,14 +65,14 @@ abstract class Solution
         if (file_exists($dataFile)) {
             $data = file_get_contents($dataFile);
             if ($data !== false) {
-                $this->data = array_filter(explode(PHP_EOL, $data));
+                $this->data = $this->filterDataOnLoad ? array_filter(explode(PHP_EOL, $data)) : explode(PHP_EOL, $data);
             }
         }
 
         if (file_exists($dataExampleFile)) {
             $data = file_get_contents($dataExampleFile);
             if ($data !== false) {
-                $this->exampleData = array_filter(explode(PHP_EOL, $data));
+                $this->exampleData = $this->filterDataOnLoad ? array_filter(explode(PHP_EOL, $data)) : explode(PHP_EOL, $data);
             }
         }
     }
