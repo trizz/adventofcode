@@ -4,11 +4,11 @@
 
 In this repository, you'll find my Advent of Code framework and solutions. If you want to
 use this framework for your own solution, just remove all data in the `./data` folder and all
-folders for each year in the `./src` folder (for example `./src/Y21`, `./src/Y22`, etc.)
+folders for each year in the `./src` folder (for example `./src/Y21`, `./src/Y23`, etc.)
 
 ## 🛠 Setup and running
 - Run `composer install` to install the dependencies.
-- Run `./aoc day {day} {year?}` to run the solution for a specific day. If year is not given, use the current year (for example `./aoc day 1` to run the code for day 1 2022)
+- Run `./aoc day {day} {year?}` to run the solution for a specific day. If year is not given, use the current year (for example `./aoc day 1` to run the code for day 1 2023)
 - Run `./aoc puzzle {day} {year?}` to get the description of the puzzle for the specific day.
 - Run `composer test` to automatically validate the solutions.
 
