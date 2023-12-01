@@ -6,13 +6,13 @@ use JetBrains\PhpStorm\ArrayShape;
 
 abstract class Solution
 {
-    public static int|string|null $part1ExampleResult = null;
+    public static null|int|string $part1ExampleResult = null;
 
-    public static int|string|null $part1Result = null;
+    public static null|int|string $part1Result = null;
 
-    public static int|string|null $part2ExampleResult = null;
+    public static null|int|string $part2ExampleResult = null;
 
-    public static int|string|null $part2Result = null;
+    public static null|int|string $part2Result = null;
 
     /**
      * @var bool When false, do not apply the `array_filter` function when the data is loaded.
@@ -89,12 +89,12 @@ abstract class Solution
 
     public function hasData(): bool
     {
-        return !empty($this->data);
+        return $this->data !== null && $this->data !== [];
     }
 
     public function hasExampleData(): bool
     {
-        return !empty($this->exampleData);
+        return $this->exampleData !== [];
     }
 
     /**

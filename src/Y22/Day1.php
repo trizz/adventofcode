@@ -6,21 +6,23 @@ use trizz\AdventOfCode\Solution;
 
 final class Day1 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 24000;
+    public static null|int|string $part1ExampleResult = 24000;
 
-    public static int|string|null $part1Result = 72240;
+    public static null|int|string $part1Result = 72240;
 
-    public static int|string|null $part2ExampleResult = 45000;
+    public static null|int|string $part2ExampleResult = 45000;
 
-    public static int|string|null $part2Result = 210957;
+    public static null|int|string $part2Result = 210957;
 
     public bool $filterDataOnLoad = false;
 
+    #[\Override]
     public function part1(array $data): int
     {
         return $this->calculateCalories($data)[0];
     }
 
+    #[\Override]
     public function part2(array $data): int
     {
         $results = $this->calculateCalories($data);

@@ -25,7 +25,7 @@ final class Arr
             } else {
                 $values = $depth === 1
                     ? array_values($item)
-                    : static::flatten($item, $depth - 1);
+                    : self::flatten($item, $depth - 1);
 
                 foreach ($values as $value) {
                     $result[] = $value;

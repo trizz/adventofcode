@@ -7,13 +7,13 @@ use trizz\AdventOfCode\Solution;
 
 final class Day6 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 5934;
+    public static null|int|string $part1ExampleResult = 5934;
 
-    public static int|string|null $part1Result = 350917;
+    public static null|int|string $part1Result = 350917;
 
-    public static int|string|null $part2ExampleResult = 26_984_457_539;
+    public static null|int|string $part2ExampleResult = 26_984_457_539;
 
-    public static int|string|null $part2Result = 1_592_918_715_629;
+    public static null|int|string $part2Result = 1_592_918_715_629;
 
     /**
      * @var int[]
@@ -32,17 +32,13 @@ final class Day6 extends Solution
         0 => 0,
     ];
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part1(array $data): int
     {
         return $this->processPuzzle(80, $data[0]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part2(array $data): int
     {
         return $this->processPuzzle(256, $data[0]);

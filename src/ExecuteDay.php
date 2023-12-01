@@ -15,6 +15,7 @@ final class ExecuteDay extends Command
 
     private string $title;
 
+    #[\Override]
     protected function configure(): void
     {
         $this
@@ -24,6 +25,7 @@ final class ExecuteDay extends Command
             ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
     }
 
+    #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->day = $input->getArgument('day');
@@ -36,6 +38,7 @@ final class ExecuteDay extends Command
         $output->writeln(str_repeat('-', strlen($this->title)));
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $className = sprintf('%s\\Y%d\\Day%d', __NAMESPACE__, $this->year, $this->day);

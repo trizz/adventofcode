@@ -6,13 +6,11 @@ use trizz\AdventOfCode\Solution;
 
 final class Day3 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 198;
+    public static null|int|string $part1ExampleResult = 198;
 
-    public static int|string|null $part1Result = 3_309_596;
+    public static null|int|string $part1Result = 3_309_596;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part1(array $data): int
     {
         $bits = [];
@@ -29,8 +27,8 @@ final class Day3 extends Solution
         $epsilonRate = '';
 
         foreach ($bits as $bit) {
-            $zeros = array_filter($bit, static fn ($value) => $value === '0');
-            $ones = array_filter($bit, static fn ($value) => $value === '1');
+            $zeros = array_filter($bit, static fn ($value): bool => $value === '0');
+            $ones = array_filter($bit, static fn ($value): bool => $value === '1');
 
             $gammaRate .= ($ones > $zeros) ? '1' : '0';
             $epsilonRate .= ($ones < $zeros) ? '1' : '0';

@@ -6,17 +6,15 @@ use trizz\AdventOfCode\Solution;
 
 final class Day2 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 150;
+    public static null|int|string $part1ExampleResult = 150;
 
-    public static int|string|null $part1Result = 1_654_760;
+    public static null|int|string $part1Result = 1_654_760;
 
-    public static int|string|null $part2ExampleResult = 900;
+    public static null|int|string $part2ExampleResult = 900;
 
-    public static int|string|null $part2Result = 1_956_047_400;
+    public static null|int|string $part2Result = 1_956_047_400;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part1(array $data): int
     {
         $depth = 0;
@@ -40,9 +38,7 @@ final class Day2 extends Solution
         return $depth * $horizontal;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part2(array $data): int
     {
         $aim = 0;

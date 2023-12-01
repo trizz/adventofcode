@@ -6,17 +6,15 @@ use trizz\AdventOfCode\Solution;
 
 final class Day1 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 7;
+    public static null|int|string $part1ExampleResult = 7;
 
-    public static int|string|null $part1Result = 1688;
+    public static null|int|string $part1Result = 1688;
 
-    public static int|string|null $part2ExampleResult = 5;
+    public static null|int|string $part2ExampleResult = 5;
 
-    public static int|string|null $part2Result = 1728;
+    public static null|int|string $part2Result = 1728;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part1(array $data): int
     {
         $previous = null;
@@ -34,9 +32,7 @@ final class Day1 extends Solution
         return $increases;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part2(array $data): int
     {
         $previousSum = null;

@@ -7,14 +7,15 @@ use trizz\AdventOfCode\Y22\Day2\RPS;
 
 final class Day2 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 15;
+    public static null|int|string $part1ExampleResult = 15;
 
-    public static int|string|null $part1Result = 10994;
+    public static null|int|string $part1Result = 10994;
 
-    public static int|string|null $part2ExampleResult = 12;
+    public static null|int|string $part2ExampleResult = 12;
 
-    public static int|string|null $part2Result = 12526;
+    public static null|int|string $part2Result = 12526;
 
+    #[\Override]
     public function part1(array $data): int
     {
         $score = 0;
@@ -28,6 +29,7 @@ final class Day2 extends Solution
         return $score;
     }
 
+    #[\Override]
     public function part2(array $data): int
     {
         $score = 0;

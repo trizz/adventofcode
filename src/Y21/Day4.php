@@ -6,25 +6,21 @@ use trizz\AdventOfCode\Solution;
 
 final class Day4 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 4512;
+    public static null|int|string $part1ExampleResult = 4512;
 
-    public static int|string|null $part1Result = 60368;
+    public static null|int|string $part1Result = 60368;
 
-    public static int|string|null $part2ExampleResult = 1924;
+    public static null|int|string $part2ExampleResult = 1924;
 
-    public static int|string|null $part2Result = 17435;
+    public static null|int|string $part2Result = 17435;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part1(array $data): int|string
     {
         return $this->playBingo($data, firstWins: true);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part2(array $data): int|string
     {
         return $this->playBingo($data, firstWins: false);
@@ -41,7 +37,7 @@ final class Day4 extends Solution
         array_walk_recursive($winningCard, static function (bool $value, int $key) use (&$return): void {
             $return[$key] = $value;
         });
-        $unusedNumbers = array_keys(array_filter($return, static fn (bool $value) => !$value));
+        $unusedNumbers = array_keys(array_filter($return, static fn (bool $value): bool => !$value));
 
         return (int) array_sum($unusedNumbers) * $number;
     }
@@ -56,10 +52,10 @@ final class Day4 extends Solution
     private function explodeNumbers(string $numberList, string $separator): array
     {
         return array_map(
-            static fn ($value) => (int) $value,
+            static fn ($value): int => (int) $value,
             array_filter(
                 explode($separator, $numberList),
-                static fn (string $value) => $value !== ''
+                static fn (string $value): bool => $value !== ''
             )
         );
     }
@@ -96,7 +92,7 @@ final class Day4 extends Solution
             }
 
             $winningCards = $this->checkCards($cards, $finishedCards);
-            if (empty($winningCards)) {
+            if ($winningCards === []) {
                 continue;
             }
 
@@ -129,7 +125,7 @@ final class Day4 extends Solution
     {
         $cards = array_chunk($data, 5);
         foreach ($cards as $card => $rows) {
-            $cards[$card] = array_map(fn ($value) => $this->explodeNumbers($value, ' '), $rows);
+            $cards[$card] = array_map(fn ($value): array => $this->explodeNumbers($value, ' '), $rows);
 
             foreach ($cards[$card] as $row => $number) {
                 $cards[$card][$row] = array_fill_keys(array_values($number), false);
@@ -147,6 +143,7 @@ final class Day4 extends Solution
     private function checkCards(array $cards, array $finishedCards): array
     {
         $winningCards = [];
+
         // Check rows
         /**
          * @var int   $cardIndex

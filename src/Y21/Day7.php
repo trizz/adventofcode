@@ -6,25 +6,21 @@ use trizz\AdventOfCode\Solution;
 
 final class Day7 extends Solution
 {
-    public static int|string|null $part1ExampleResult = 37;
+    public static null|int|string $part1ExampleResult = 37;
 
-    public static int|string|null $part1Result = 344297;
+    public static null|int|string $part1Result = 344297;
 
-    public static int|string|null $part2ExampleResult = 168;
+    public static null|int|string $part2ExampleResult = 168;
 
-    public static int|string|null $part2Result = 97_164_301;
+    public static null|int|string $part2Result = 97_164_301;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part1(array $data): int
     {
         return $this->calculateFuel($data[0], forPart2: false);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function part2(array $data): int
     {
         return $this->calculateFuel($data[0], forPart2: true);
@@ -32,7 +28,7 @@ final class Day7 extends Solution
 
     private function calculateFuel(string $data, bool $forPart2 = false): int
     {
-        $crabs = array_map(static fn (string $crab) => (int) $crab, explode(',', $data));
+        $crabs = array_map(static fn (string $crab): int => (int) $crab, explode(',', $data));
 
         /** @psalm-param array{int: int} $fuelPerPosition */
         $fuelPerPosition = [];

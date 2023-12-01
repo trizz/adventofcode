@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class Puzzle extends Command
 {
+    #[\Override]
     protected function configure(): void
     {
         $this
@@ -19,6 +20,7 @@ final class Puzzle extends Command
             ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contents = file_get_contents(
