@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
@@ -15,16 +14,13 @@ return static function (RectorConfig $rectorConfig): void {
         ]
     );
 
-    // register a single rule
-    $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-
     // define sets of rules
     $rectorConfig->sets(
         [
-            LevelSetList::UP_TO_PHP_81,
+            LevelSetList::UP_TO_PHP_83,
             SetList::CODE_QUALITY,
             SetList::CODING_STYLE,
-            SetList::TYPE_DECLARATION_STRICT,
+            SetList::TYPE_DECLARATION,
             SetList::NAMING,
             SetList::PRIVATIZATION,
             SetList::EARLY_RETURN,

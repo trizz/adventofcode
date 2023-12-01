@@ -51,7 +51,7 @@ final class SolutionsTest extends TestCase
     /**
      * @return array<string, array<int, Solution>>
      */
-    public function loadSolutions(): array
+    public static function loadSolutions(): array
     {
         $classes = [];
         for ($year = 15; $year <= date('y'); ++$year) {

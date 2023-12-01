@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.3",
         "ext-mbstring": "*",
         "cebe/markdown": "^1.2",
         "phppkg/cli-markdown": "^2.0",
@@ -19,11 +19,12 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.3",
         "jetbrains/phpstorm-attributes": "^1.0",
-        "nunomaduro/collision": "^6",
+        "nunomaduro/collision": "^7",
         "phpstan/phpstan": "^1.2",
-        "phpunit/phpunit": "^9.5",
-        "rector/rector": "^0.14.8",
-        "symfony/var-dumper": "^6.0"
+        "phpunit/phpunit": "^10.5",
+        "rector/rector": "^0.18",
+        "robiningelbrecht/phpunit-pretty-print": "^1.2",
+        "symfony/var-dumper": "^7"
     },
     "autoload": {
         "psr-4": {
