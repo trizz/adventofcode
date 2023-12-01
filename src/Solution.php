@@ -27,11 +27,13 @@ abstract class Solution
     public ?array $data = null;
 
     /**
-     * @var string[] The example data.
-     *
-     * @psalm-suppress PropertyNotSetInConstructor
+     * @var array<array<int, string>|null> The example data to use.
      */
-    public ?array $exampleData = null;
+    public array $exampleData = [
+        'global' => null,
+        'part1' => null,
+        'part2' => null,
+    ];
 
     /**
      * Solve the given data for part one of the puzzle.
@@ -60,7 +62,11 @@ abstract class Solution
     public function loadData(): void
     {
         $dataFile = sprintf('%s/../data/Y%d/day%d/data.txt', __DIR__, $this->year(), $this->day());
-        $dataExampleFile = sprintf('%s/../data/Y%d/day%d/example.txt', __DIR__, $this->year(), $this->day());
+        $dataExampleFiles = [
+            'global' => sprintf('%s/../data/Y%d/day%d/example.txt', __DIR__, $this->year(), $this->day()),
+            'part1' => sprintf('%s/../data/Y%d/day%d/example-part1.txt', __DIR__, $this->year(), $this->day()),
+            'part2' => sprintf('%s/../data/Y%d/day%d/example-part2.txt', __DIR__, $this->year(), $this->day()),
+        ];
 
         if (file_exists($dataFile)) {
             $data = file_get_contents($dataFile);
@@ -69,10 +75,12 @@ abstract class Solution
             }
         }
 
-        if (file_exists($dataExampleFile)) {
-            $data = file_get_contents($dataExampleFile);
-            if ($data !== false) {
-                $this->exampleData = $this->filterDataOnLoad ? array_filter(explode(PHP_EOL, $data)) : explode(PHP_EOL, $data);
+        foreach ($dataExampleFiles as $type => $filePath) {
+            if (file_exists($filePath)) {
+                $data = file_get_contents($filePath);
+                if ($data !== false) {
+                    $this->exampleData[$type] = $this->filterDataOnLoad ? array_filter(explode(PHP_EOL, $data)) : explode(PHP_EOL, $data);
+                }
             }
         }
     }
@@ -103,24 +111,22 @@ abstract class Solution
     #[ArrayShape(['part1' => 'int|string', 'part2' => 'int|string'])]
     public function results(bool $useExampleData = true): array
     {
-        $data = $useExampleData ? $this->exampleData : $this->data;
-
         return [
-            'part1' => $this->part1($data ?? []),
-            'part2' => $this->part2($data ?? []),
+            'part1' => $this->part1Data($useExampleData),
+            'part2' => $this->part2Data($useExampleData),
         ];
     }
 
     public function part1Data(bool $useExampleData = true): int|string
     {
-        $data = $useExampleData ? $this->exampleData : $this->data;
+        $data = $useExampleData ? ($this->exampleData['part1'] ?? $this->exampleData['global']) : $this->data;
 
         return $this->part1($data ?? []);
     }
 
     public function part2Data(bool $useExampleData = true): int|string
     {
-        $data = $useExampleData ? $this->exampleData : $this->data;
+        $data = $useExampleData ? ($this->exampleData['part2'] ?? $this->exampleData['global']) : $this->data;
 
         return $this->part2($data ?? []);
     }
