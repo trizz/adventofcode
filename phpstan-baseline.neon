@@ -39,3 +39,8 @@ parameters:
 			message: "#^Property trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:\\$patternDigits type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Y21/Day8.php
+
+		-
+			message: "#^Method trizz\\\\AdventOfCode\\\\Y23\\\\Day2\\:\\:getHand\\(\\) should return array\\<int, array\\<int, string\\>\\> but returns array\\<int, array\\<int, string\\>\\|string\\>\\.$#"
+			count: 1
+			path: src/Y23/Day2.php
