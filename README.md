@@ -5,7 +5,12 @@
 In this repository, you'll find my Advent of Code framework and solutions. If you want to
 use this framework for your own solution, just remove all data in the `./data` folder.
 
-## 🛠 Setup and running
+It provides both a PHP and a Go framework. The PHP framework is the most complete one while 
+the Go framework is still a work in progress and is meant to learn Go.
+
+## PHP
+
+### 🛠 Setup and running
 - Run `composer install` to install the dependencies.
 - Run `./aoc day {day} {year?}` to run the solution for a specific day. If year is not given, use the current year (for example `./aoc day 1` to run the code for day 1 2023)
 - Run `./aoc test {day} {year?}` to run the solution against the specified results.
@@ -15,12 +20,12 @@ use this framework for your own solution, just remove all data in the `./data` f
 > - You can add `--one` or `--two` (or `-1` and `-2`) to the day to run the solution for part 1 or part 2.
 > - You can add `--skip-example` (or `-s`) to skip the example data.
 
-## 🧪 Testing and quality control
+### 🧪 Testing and quality control
 - Run `./vendor/bin/pest` to automatically validate the solutions.
 - Run `./vendor/bin/phpstan analyse` to run static analysis on the code.
 - Run `./vendor/bin/php-cs-fixer fix` to run (and fix) code style checks.
 
-## 🧩 Add a new puzzle/solution
+### 🧩 Add a new puzzle/solution
 - Run `./aoc new {day?} {year?}` to create a new puzzle/solution.
 
 <details>
