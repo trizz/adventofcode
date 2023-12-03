@@ -9,7 +9,7 @@ final class Day1 extends Solution
     /**
      * @var array<string,int>
      */
-    private const NUMBER_STRING = [
+    private const array NUMBER_STRING = [
         'one' => 1,
         'two' => 2,
         'three' => 3,
