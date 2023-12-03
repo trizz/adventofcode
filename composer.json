@@ -20,8 +20,8 @@
         "friendsofphp/php-cs-fixer": "^3.3",
         "jetbrains/phpstorm-attributes": "^1.0",
         "nunomaduro/collision": "^7",
+        "pestphp/pest": "^2.26",
         "phpstan/phpstan": "^1.2",
-        "phpunit/phpunit": "^10.5",
         "rector/rector": "^0.18",
         "robiningelbrecht/phpunit-pretty-print": "^1.2",
         "symfony/var-dumper": "^7"
@@ -38,6 +38,9 @@
     },
     "config": {
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
