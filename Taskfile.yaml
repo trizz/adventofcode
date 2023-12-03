@@ -40,7 +40,7 @@ tasks:
 
   phpunit:
     cmds:
-      - php vendor/bin/phpunit
+      - php vendor/bin/pest
     silent: true
 
   echo_title:

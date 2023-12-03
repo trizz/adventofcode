@@ -22,12 +22,12 @@ steps:
   commands:
     - vendor/bin/rector process --dry-run
 
-- name: phpunit
+- name: pest
   image: php:8.3
   depends_on:
   - install
   commands:
-  - vendor/bin/phpunit
+  - vendor/bin/pest
 
 - name: style check
   image: php:8.3
