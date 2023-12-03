@@ -22,7 +22,8 @@ final class ExecuteDay extends Command
             ->setName('day')
             ->setDescription('Run day')
             ->addArgument('day', InputArgument::REQUIRED, 'The day number')
-            ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
+            ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'))
+            ->addOption('skip-example', 's', null, 'Skip the example data');
     }
 
     #[\Override]
@@ -50,7 +51,7 @@ final class ExecuteDay extends Command
         // Solve the examples if available.
         $resultPart1Example = 'n/a';
         $resultPart2Example = 'n/a';
-        if ($class->hasExampleData()) {
+        if ($class->hasExampleData() && !$input->getOption('skip-example')) {
             ['part1' => $resultPart1Example, 'part2' => $resultPart2Example] = $class->results(useExampleData: true);
         }
 
