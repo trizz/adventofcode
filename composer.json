@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "trizz\\AdventOfCode\\": "src/"
+            "trizz\\AdventOfCode\\": "src-php/"
         }
     },
     "autoload-dev": {
