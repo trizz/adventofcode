@@ -103,7 +103,10 @@ abstract class Solution
 
     public function hasExampleData(): bool
     {
-        return $this->exampleData['global'] !== [];
+        return
+            ($this->exampleData['global'] !== null && $this->exampleData['global'] !== [])
+            || ($this->exampleData['part1'] !== null && $this->exampleData['part1'] !== [])
+            || ($this->exampleData['part2'] !== null && $this->exampleData['part2'] !== []);
     }
 
     /**
