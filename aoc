@@ -4,6 +4,7 @@ require __DIR__.'/vendor/autoload.php';
 
 use NunoMaduro\Collision\Provider as CollisionProvider;
 use Symfony\Component\Console\Application;
+use trizz\AdventOfCode\Commands\AddDay;
 use trizz\AdventOfCode\Commands\ExecuteDay;
 use trizz\AdventOfCode\Commands\Puzzle;
 use trizz\AdventOfCode\Commands\TestDay;
@@ -15,6 +16,7 @@ $application = new Application('Advent of Code by trizz');
 $application->add(new Puzzle());
 $application->add(new ExecuteDay());
 $application->add(new TestDay());
+$application->add(new AddDay());
 
 try {
     $application->run();
