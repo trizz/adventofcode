@@ -3,8 +3,7 @@
 [![Build Status](https://drone.trizz.io/api/badges/trizz/adventofcode/status.svg)](https://drone.trizz.io/trizz/adventofcode)
 
 In this repository, you'll find my Advent of Code framework and solutions. If you want to
-use this framework for your own solution, just remove all data in the `./data` folder and all
-folders for each year in the `./src` folder (for example `./src/Y21`, `./src/Y23`, etc.)
+use this framework for your own solution, just remove all data in the `./data` folder.
 
 ## 🛠 Setup and running
 - Run `composer install` to install the dependencies.
@@ -22,12 +21,19 @@ folders for each year in the `./src` folder (for example `./src/Y21`, `./src/Y23
 - Run `./vendor/bin/php-cs-fixer fix` to run (and fix) code style checks.
 
 ## 🧩 Add a new puzzle/solution
+- Run `./aoc new {day?} {year?}` to create a new puzzle/solution.
+
+<details>
+  <summary>Manual setup</summary>
+
 - Create a directory in `./data/Y??/day?` with the correct name.
   - Create `example.txt` with the example values from the puzzle.
     - If there are different examples for part 1 and part 2, create `example-part1.txt` and `example-part2.txt`.
   - Create `data.txt` with your personal input.
   - (optional) Create `puzzle.md` with the puzzle description. You can use [this plugin](https://github.com/kfarnung/aoc-to-markdown) to easily convert the puzzle to markdown.
-- Create a new class in the `src/Y??/Day??.php` directory and make sure it has the structure defined below.
+- Create a new class in the `Day??.php` directory and make sure it has the structure defined below.
+
+</details>
 
 <details>
   <summary>Solution structure</summary>
