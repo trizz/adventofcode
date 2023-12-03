@@ -6,6 +6,7 @@ use NunoMaduro\Collision\Provider as CollisionProvider;
 use Symfony\Component\Console\Application;
 use trizz\AdventOfCode\Commands\ExecuteDay;
 use trizz\AdventOfCode\Commands\Puzzle;
+use trizz\AdventOfCode\Commands\TestDay;
 
 (new CollisionProvider())->register();
 
@@ -13,6 +14,7 @@ $application = new Application('Advent of Code by trizz');
 
 $application->add(new Puzzle());
 $application->add(new ExecuteDay());
+$application->add(new TestDay());
 
 try {
     $application->run();
