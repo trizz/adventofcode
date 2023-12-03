@@ -21,7 +21,7 @@ final class AddDay extends Command
     protected function configure(): void
     {
         $this
-            ->setName('add:day')
+            ->setName('new')
             ->setDescription('Add a new day.')
             ->addArgument('day', InputArgument::OPTIONAL, 'The day number.')
             ->addArgument('year', InputArgument::OPTIONAL, 'The year', date('y'));
@@ -79,7 +79,7 @@ final class AddDay extends Command
 
     private function addDirsAndExampleFiles(mixed $year, mixed $day): self
     {
-        if (!is_dir($this->dataDir) && !mkdir($this->dataDir) && !is_dir($this->dataDir)) {
+        if (!is_dir($this->dataDir) && !mkdir($this->dataDir, recursive: true) && !is_dir($this->dataDir)) {
             throw new \RuntimeException(sprintf('Directory "%s" was not created', $this->dataDir));
         }
 
