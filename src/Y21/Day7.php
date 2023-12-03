@@ -30,10 +30,13 @@ final class Day7 extends Solution
     {
         $crabs = array_map(static fn (string $crab): int => (int) $crab, explode(',', $data));
 
-        /** @psalm-param array{int: int} $fuelPerPosition */
+        /** @var array<int, int> $fuelPerPosition */
         $fuelPerPosition = [];
 
-        for ($position = min($crabs); $position <= max($crabs); ++$position) {
+        $minCrab = min($crabs);
+        $maxCrab = max($crabs);
+
+        for ($position = $minCrab; $position <= $maxCrab; ++$position) {
             foreach ($crabs as $crab) {
                 if (!isset($fuelPerPosition[$position])) {
                     $fuelPerPosition[$position] = 0;
@@ -42,20 +45,13 @@ final class Day7 extends Solution
                 $consumption = abs($position - $crab);
 
                 if ($forPart2) {
-                    $newConsumption = 0;
-                    // I'm sure there's another way than brute-forcing, but hey, this also works!
-                    for ($steps = 1; $steps <= $consumption; ++$steps) {
-                        $newConsumption += $steps;
-                    }
-
-                    $consumption = $newConsumption;
+                    $consumption = $consumption * ($consumption + 1) / 2;
                 }
 
                 $fuelPerPosition[$position] += $consumption;
             }
         }
 
-        /** @psalm-suppress ArgumentTypeCoercion */
-        return min($fuelPerPosition);
+        return (int) min($fuelPerPosition);
     }
 }
