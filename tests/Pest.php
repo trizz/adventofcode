@@ -26,7 +26,7 @@
 
 use trizz\AdventOfCode\Solution;
 
-expect()->extend('toBeOne', fn() => $this->toBe(1));
+expect()->extend('toBeOne', fn () => $this->toBe(1));
 
 /*
 |--------------------------------------------------------------------------
@@ -45,12 +45,16 @@ expect()->extend('toBeOne', fn() => $this->toBe(1));
 function loadSolutions(int $year): array
 {
     $classes = [];
-    if (is_dir(__DIR__.'/../src/Y'.$year)) {
-        for ($day = 1; $day < 26; ++$day) {
-            $className = sprintf('trizz\\AdventOfCode\\Y%d\\Day%d', $year, $day);
-            if (class_exists($className)) {
-                $classes["Year '".$year.' / Day '.$day] = $className;
-            }
+    for ($day = 1; $day < 26; ++$day) {
+        $classFile = sprintf('%s/../data/Y%d/day%d/Day%d.php', __DIR__, $year, $day, $day);
+        if (!file_exists($classFile)) {
+            continue;
+        }
+
+        require_once $classFile;
+        $className = sprintf('trizz\\AdventOfCode\\Y%d\\Day%d', $year, $day);
+        if (class_exists($className)) {
+            $classes["Year '".$year.' / Day '.$day] = $className;
         }
     }
 
@@ -60,7 +64,7 @@ function loadSolutions(int $year): array
 function runTestForDay($class, string $name, $testDataMethod, $expectedResult, $isExampleData): void
 {
     $fullName = $name.' / '.($isExampleData ? 'Example' : 'Input');
-    test($fullName, function () use ($isExampleData, $class, $testDataMethod, $expectedResult) : void {
+    test($fullName, function () use ($isExampleData, $class, $testDataMethod, $expectedResult): void {
         expect($class->{$testDataMethod}($isExampleData))->toBe($class::${$expectedResult});
     })->skip(!$class->hasExampleData() || $class::${$expectedResult} === null);
 }
@@ -69,7 +73,7 @@ function testYear(int $year): void
 {
     $solutions = loadSolutions($year);
     foreach ($solutions as $name => $className) {
-        describe('Y'.$year, static function () use ($name, $className) : void {
+        describe('Y'.$year, static function () use ($name, $className): void {
             /** @var Solution $class */
             $class = new $className();
             $class->loadData();

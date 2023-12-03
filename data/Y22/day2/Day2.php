@@ -15,6 +15,11 @@ final class Day2 extends Solution
 
     public static null|int|string $part2Result = 12526;
 
+    public function __construct()
+    {
+        require_once __DIR__.'/RPS.php';
+    }
+
     #[\Override]
     public function part1(array $data): int
     {

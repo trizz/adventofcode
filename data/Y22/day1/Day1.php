@@ -1,6 +1,6 @@
 <?php
 
-namespace trizz\AdventOfCode\Y22;
+namespace trizzssdddAdventOfCode\Y22;
 
 use trizz\AdventOfCode\Solution;
 

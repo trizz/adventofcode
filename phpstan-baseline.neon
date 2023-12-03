@@ -3,44 +3,44 @@ parameters:
 		-
 			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:arrayHasSingleValue\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day4.php
+			path: data/Y21/day4/Day4.php
 
 		-
 			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:checkCards\\(\\) has parameter \\$cards with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day4.php
+			path: data/Y21/day4/Day4.php
 
 		-
 			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day4\\:\\:checkCards\\(\\) has parameter \\$finishedCards with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day4.php
+			path: data/Y21/day4/Day4.php
 
 		-
 			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day6\\:\\:processDay\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day6.php
+			path: data/Y21/day6/Day6.php
 
 		-
 			message: "#^Parameter \\#1 \\$state of method trizz\\\\AdventOfCode\\\\Y21\\\\Day6\\:\\:processDay\\(\\) expects array\\{int\\: int\\}, array given\\.$#"
 			count: 1
-			path: src/Y21/Day6.php
+			path: data/Y21/day6/Day6.php
 
 		-
 			message: "#^Method trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:mapDigits\\(\\) has parameter \\$patterns with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day8.php
+			path: data/Y21/day8/Day8.php
 
 		-
 			message: "#^Property trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:\\$digitPatterns type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day8.php
+			path: data/Y21/day8/Day8.php
 
 		-
 			message: "#^Property trizz\\\\AdventOfCode\\\\Y21\\\\Day8\\:\\:\\$patternDigits type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Y21/Day8.php
+			path: data/Y21/day8/Day8.php
 
 		-
 			message: "#^Method trizz\\\\AdventOfCode\\\\Y23\\\\Day2\\:\\:getHand\\(\\) should return array\\<int, array\\<int, string\\>\\> but returns array\\<int, array\\<int, string\\>\\|string\\>\\.$#"
 			count: 1
-			path: src/Y23/Day2.php
+			path: data/Y23/day2/Day2.php

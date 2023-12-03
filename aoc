@@ -11,6 +11,8 @@ use trizz\AdventOfCode\Commands\TestDay;
 
 (new CollisionProvider())->register();
 
+require_once __DIR__.'/src/bootstrap.php';
+
 $application = new Application('Advent of Code by trizz');
 
 $application->add(new Puzzle());

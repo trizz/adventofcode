@@ -15,6 +15,8 @@ use function Laravel\Prompts\text;
 
 final class AddDay extends Command
 {
+    private string $dataDir;
+
     #[\Override]
     protected function configure(): void
     {
@@ -37,60 +39,57 @@ final class AddDay extends Command
                 placeholder: '3',
                 default: date('j'),
                 required: true,
-                validate: fn ($value) => is_numeric($value) && $value > 0 && $value < 26 ? null : 'Please enter a valid day number.'
+                validate: static fn ($value): ?string => is_numeric($value) && $value > 0 && $value < 26 ? null : 'Please enter a valid day number.'
             );
         }
 
         $example1Result = text(
             label: 'Please enter the result for example 1.',
             required: true,
-            validate: fn ($value) => is_numeric($value) ? null : 'Please enter a valid number.'
+            validate: static fn ($value): ?string => is_numeric($value) ? null : 'Please enter a valid number.'
         );
 
         // Create short year.
-        $year = strlen($year) === 4 ? substr($year, 2) : $year;
-
-        $output->writeln("Adding files for day {$day} of year '{$year}.");
+        $year = strlen((string) $year) === 4 ? substr((string) $year, 2) : $year;
+        $this->dataDir = DATA_DIR.'/Y'.$year.'/day'.$day;
+        $output->writeln(sprintf("Adding files for day %s of year '%s.", $day, $year));
 
         $this
-            ->createDirs($year, $day)
-            ->createClass($day, $year, $example1Result)
-            ->addExampleDirs($year, $day);
+            ->addDirsAndExampleFiles($year, $day)
+            ->createClass($day, $year, $example1Result);
 
         return Command::SUCCESS;
     }
 
-    protected function createDirs(int $year, int $day): self
+    private function createClass(string $day, string $year, string $example1Result): self
     {
-        if (!is_dir($dir = "src/Y{$year}") && !mkdir($dir) && !is_dir($dir)) {
-            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
-        }
+        $phpNamespace = new PhpNamespace('trizz\AdventOfCode\Y'.$year);
+        $classType = new ClassType('Day'.$day);
 
-        if (!is_dir($dir = "data/Y{$year}/day{$day}") && !mkdir($dir) && !is_dir($dir)) {
-            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
-        }
+        $classType->setFinal()->setExtends(Solution::class);
+
+        $this->createClassProperties($classType, $example1Result);
+        $this->createClassMethods($classType);
+
+        $phpNamespace->add($classType);
+        $this->printClassToFile($classType, $year, $day, $phpNamespace);
 
         return $this;
     }
 
-    protected function createClass(string $day, string $year, string $example1Result): self
+    private function addDirsAndExampleFiles(mixed $year, mixed $day): self
     {
-        $namespace = new PhpNamespace('trizz\AdventOfCode\Y'.$year);
-        $class = new ClassType('Day'.$day);
+        if (!is_dir($this->dataDir) && !mkdir($this->dataDir) && !is_dir($this->dataDir)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $this->dataDir));
+        }
 
-        $class->setFinal()
-            ->setExtends(Solution::class);
-
-        $this->createClassProperties($class, $example1Result);
-        $this->createClassMethods($class);
-
-        $namespace->add($class);
-        $this->printClassToFile($class, $year, $day, $namespace);
+        touch($this->dataDir.'/example.txt');
+        touch($this->dataDir.'/data.txt');
 
         return $this;
     }
 
-    private function createClassProperties(ClassType $class, string $example1Result): void
+    private function createClassProperties(ClassType $classType, string $example1Result): void
     {
         $properties = [
             'part1ExampleResult' => $example1Result,
@@ -100,7 +99,7 @@ final class AddDay extends Command
         ];
 
         foreach ($properties as $name => $value) {
-            $class
+            $classType
                 ->addProperty($name, $value)
                 ->setPublic()
                 ->setStatic()
@@ -108,43 +107,29 @@ final class AddDay extends Command
         }
     }
 
-    private function createClassMethods(ClassType $class): void
+    private function createClassMethods(ClassType $classType): void
     {
         $methods = ['part1', 'part2'];
 
-        foreach ($methods as $methodName) {
-            $class
-                ->addMethod($methodName)
+        foreach ($methods as $method) {
+            $classType
+                ->addMethod($method)
                 ->setReturnType('int')
                 ->setBody('return -1;')
                 ->addParameter('data')->setType('array');
         }
     }
 
-    private function printClassToFile(ClassType $class, string $year, string $day, PhpNamespace $namespace): void
+    private function printClassToFile(ClassType $classType, string $year, string $day, PhpNamespace $phpNamespace): void
     {
         $printer = new Printer();
         $printer->indentation = '    ';
 
-        $filename = __DIR__.'/../Y'.$year.'/Day'.$day.'.php';
+        $filename = $this->dataDir.'/Day'.$day.'.php';
         if (file_exists($filename)) {
-            throw new \RuntimeException("File {$filename} already exists.");
+            throw new \RuntimeException(sprintf('File %s already exists.', $filename));
         }
 
-        file_put_contents($filename, '<?php'.PHP_EOL.$printer->printNamespace($namespace));
-    }
-
-    protected function addExampleDirs(mixed $year, mixed $day): self
-    {
-        $dataDir = __DIR__.'/../../data/Y'.$year.'/day'.$day;
-
-        if (!is_dir($dataDir) && !mkdir($dataDir) && !is_dir($dataDir)) {
-            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dataDir));
-        }
-
-        touch($dataDir.'/example.txt');
-        touch($dataDir.'/data.txt');
-
-        return $this;
+        file_put_contents($filename, '<?php'.PHP_EOL.$printer->printNamespace($phpNamespace));
     }
 }

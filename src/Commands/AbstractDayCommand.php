@@ -77,6 +77,7 @@ abstract class AbstractDayCommand extends Command
 
     protected function loadClass(): Solution
     {
+        require_once sprintf('%s/Y%d/day%d/Day%d.php', DATA_DIR, $this->year, $this->day, $this->day);
         $className = sprintf('%s\\Y%d\\Day%d', substr(__NAMESPACE__, 0, -9), $this->year, $this->day);
 
         /** @var Solution $class */
