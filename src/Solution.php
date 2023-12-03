@@ -29,6 +29,7 @@ abstract class Solution
     /**
      * @var array<array<int, string>|null> The example data to use.
      */
+    #[ArrayShape(['part1' => 'array|null', 'part2' => 'array|null', 'global' => 'array|null'])]
     public array $exampleData = [
         'global' => null,
         'part1' => null,
@@ -102,7 +103,7 @@ abstract class Solution
 
     public function hasExampleData(): bool
     {
-        return $this->exampleData !== [];
+        return $this->exampleData['global'] !== [];
     }
 
     /**
