@@ -110,11 +110,11 @@ abstract class Solution
      * @return array{part1: int|string, part2: int|string}
      */
     #[ArrayShape(['part1' => 'int|string', 'part2' => 'int|string'])]
-    public function results(bool $useExampleData = true): array
+    public function results(bool $useExampleData = true, int $part = 0): array
     {
         return [
-            'part1' => $this->part1Data($useExampleData),
-            'part2' => $this->part2Data($useExampleData),
+            'part1' => ($part === 1 || $part === 0) ? $this->part1Data($useExampleData) : 'n/a',
+            'part2' => ($part === 2 || $part === 0) ? $this->part2Data($useExampleData) : 'n/a',
         ];
     }
 

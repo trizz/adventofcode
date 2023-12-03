@@ -1,6 +1,6 @@
 <?php
 
-namespace trizz\AdventOfCode;
+namespace trizz\AdventOfCode\Commands;
 
 use PhpPkg\CliMarkdown\CliMarkdown;
 use Symfony\Component\Console\Command\Command;
@@ -25,7 +25,7 @@ final class Puzzle extends Command
     {
         $contents = file_get_contents(
             sprintf(
-                '%s/../data/Y%d/day%s/puzzle.md',
+                '%s/../../data/Y%d/day%s/puzzle.md',
                 __DIR__,
                 $input->getArgument('year'),
                 (int) $input->getArgument('day')

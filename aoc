@@ -4,8 +4,8 @@ require __DIR__.'/vendor/autoload.php';
 
 use NunoMaduro\Collision\Provider as CollisionProvider;
 use Symfony\Component\Console\Application;
-use trizz\AdventOfCode\ExecuteDay;
-use trizz\AdventOfCode\Puzzle;
+use trizz\AdventOfCode\Commands\ExecuteDay;
+use trizz\AdventOfCode\Commands\Puzzle;
 
 (new CollisionProvider())->register();
 
