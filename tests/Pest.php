@@ -78,8 +78,8 @@ function testYear(int $year): void
             $class = new $className();
             $class->loadData();
             runTestForDay($class, $name.' / Part 1', 'part1Data', 'part1ExampleResult', true);
-            runTestForDay($class, $name.' / Part 2', 'part2Data', 'part2ExampleResult', true);
             runTestForDay($class, $name.' / Part 1', 'part1Data', 'part1Result', false);
+            runTestForDay($class, $name.' / Part 2', 'part2Data', 'part2ExampleResult', true);
             runTestForDay($class, $name.' / Part 2', 'part2Data', 'part2Result', false);
         })->group('Y'.$year);
     }
