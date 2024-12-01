@@ -9,28 +9,28 @@ steps:
   - composer install
 
 - name: phpstan
-  image: php:8.3
+  image: php:8.4
   depends_on:
   - install
   commands:
   - vendor/bin/phpstan analyse
 
 - name: rector
-  image: php:8.3
+  image: php:8.4
   depends_on:
     - install
   commands:
     - vendor/bin/rector process --dry-run
 
 - name: pest
-  image: php:8.3
+  image: php:8.4
   depends_on:
   - install
   commands:
   - vendor/bin/pest
 
 - name: style check
-  image: php:8.3
+  image: php:8.4
   depends_on:
   - install
   commands:
