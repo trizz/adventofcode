@@ -1,48 +1,49 @@
 {
-    "name": "trizz/adventofcode",
-    "description": "My Advent of Code solutions",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Tristan",
-            "email": "me@trizz.io"
-        }
-    ],
-    "require": {
-        "php": "^8.3",
-        "ext-mbstring": "*",
-        "cebe/markdown": "^1.2",
-        "laravel/prompts": "^0.1.13",
-        "nette/php-generator": "^4.1",
-        "phppkg/cli-markdown": "^2.0",
-        "symfony/console": "^7"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.3",
-        "jetbrains/phpstorm-attributes": "^1.0",
-        "nunomaduro/collision": "^8",
-        "pestphp/pest": "^2.26",
-        "phpstan/phpstan": "^1.2",
-        "rector/rector": "^1.0",
-        "robiningelbrecht/phpunit-pretty-print": "^1.2",
-        "symfony/var-dumper": "^7"
-    },
-    "autoload": {
-        "psr-4": {
-            "trizz\\AdventOfCode\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "config": {
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+  "name": "trizz/adventofcode",
+  "description": "My Advent of Code solutions",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tristan",
+      "email": "me@trizz.io"
     }
+  ],
+  "require": {
+    "php": "^8.3",
+    "ext-mbstring": "*",
+    "cebe/markdown": "^1.2",
+    "laravel/prompts": "^0.3",
+    "nette/php-generator": "^4.1",
+    "phppkg/cli-markdown": "^2.0",
+    "symfony/console": "^7"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.3",
+    "jetbrains/phpstorm-attributes": "^1.0",
+    "nunomaduro/collision": "^8",
+    "pestphp/pest": "^3.5",
+    "phpstan/phpstan": "^2.0",
+    "rector/rector": "^2.0",
+    "robiningelbrecht/phpunit-pretty-print": "^1.2",
+    "symfony/var-dumper": "^7"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "trizz\\AdventOfCode\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }

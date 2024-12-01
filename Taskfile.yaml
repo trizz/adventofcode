@@ -1,6 +1,6 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -11,21 +11,21 @@ tasks:
   check:
     cmds:
       - task: echo_title
-        vars: {TITLE: Running php-cs-fixer...}
+        vars: { TITLE: Running php-cs-fixer... }
       - task: style
       - task: echo_title
-        vars: {TITLE: Running phpstan...}
+        vars: { TITLE: Running phpstan... }
       - task: phpstan
       - task: echo_title
         vars: { TITLE: Running rector... }
       - task: rector
       - task: echo_title
-        vars: {TITLE: Running phpunit}
-      - task: phpunit
+        vars: { TITLE: Running pest }
+      - task: pest
 
   style:
     cmds:
-      - php vendor/bin/php-cs-fixer fix
+      - PHP_CS_FIXER_IGNORE_ENV=1 php vendor/bin/php-cs-fixer fix
     silent: true
 
   phpstan:
@@ -38,7 +38,7 @@ tasks:
       - php vendor/bin/rector process
     silent: true
 
-  phpunit:
+  pest:
     cmds:
       - php vendor/bin/pest
     silent: true

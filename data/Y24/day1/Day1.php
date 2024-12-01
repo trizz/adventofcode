@@ -7,10 +7,14 @@ use trizz\AdventOfCode\Solution;
 final class Day1 extends Solution
 {
     public static null|int|string $part1ExampleResult = 11;
-    public static null|int|string $part1Result = 1882714;
-    public static null|int|string $part2ExampleResult = 31;
-    public static null|int|string $part2Result = null;
 
+    public static null|int|string $part1Result = 1882714;
+
+    public static null|int|string $part2ExampleResult = 31;
+
+    public static null|int|string $part2Result = 19437052;
+
+    #[\Override]
     public function part1(array $data): int
     {
         [$listLeft, $listRight] = $this->getList($data);
@@ -23,13 +27,14 @@ final class Day1 extends Solution
         return $score;
     }
 
+    #[\Override]
     public function part2(array $data): int
     {
         $score = 0;
         [$listLeft, $listRight] = $this->getList($data);
 
         foreach ($listLeft as $index => $left) {
-            $right = count(array_filter($listRight, fn ($x) => $x === $left));
+            $right = count(array_filter($listRight, fn ($x): bool => $x === $left));
             if ($right > 0) {
                 $score += $left * $right;
             }

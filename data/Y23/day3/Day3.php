@@ -30,6 +30,17 @@ final class Day3 extends Solution
                 $numbers = $this->checkLocation($row, $col);
                 $top = (int) $this->processNumbers($numbers['top'], sum: true);
                 $bottom = (int) $this->processNumbers($numbers['bottom'], sum: true);
+                if ($numbers === []) {
+                    continue;
+                }
+
+                if (empty($numbers['left'])) {
+                    continue;
+                }
+
+                if (empty($numbers['right'])) {
+                    continue;
+                }
 
                 $score += $top + $bottom + max($numbers['left']) + max($numbers['right']);
             }
@@ -54,6 +65,18 @@ final class Day3 extends Solution
 
                 $top = (array) $this->processNumbers($numbers['top']);
                 $bottom = (array) $this->processNumbers($numbers['bottom']);
+                if ($numbers === []) {
+                    continue;
+                }
+
+                if (empty($numbers['left'])) {
+                    continue;
+                }
+
+                if (empty($numbers['right'])) {
+                    continue;
+                }
+
                 $left = max($numbers['left']);
                 $right = max($numbers['right']);
 
@@ -81,7 +104,7 @@ final class Day3 extends Solution
         if ($numbers[0] !== 0 && $numbers[1] === 0 && $numbers[2] !== 0) {
             $result[] = $numbers[0];
             $result[] = $numbers[2];
-        } else {
+        } elseif ($numbers !== []) {
             $result[] = max($numbers);
         }
 
@@ -127,7 +150,7 @@ final class Day3 extends Solution
         return $numbers;
     }
 
-    private function getNumber(int $row, int $col, string $direction = null): ?string
+    private function getNumber(int $row, int $col, ?string $direction = null): ?string
     {
         $number = $this->matrix[$row][$col] ?? null;
 

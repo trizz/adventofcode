@@ -40,7 +40,7 @@ final class Day8 extends Solution
     }
 
     #[\Override]
-    public function part2(array $data): int|string
+    public function part2(array $data): int
     {
         $sequences = [];
 

@@ -52,6 +52,10 @@ final class Day7 extends Solution
             }
         }
 
+        if (empty($fuelPerPosition)) {
+            return -1;
+        }
+
         return (int) min($fuelPerPosition);
     }
 }

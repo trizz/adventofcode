@@ -21,11 +21,9 @@ final class Day2 extends Solution
         $horizontal = 0;
 
         foreach ($data as $current) {
-            /**
-             * @var string $direction
-             * @var int    $distance
-             */
             [$direction, $distance] = explode(' ', $current);
+            $direction = (string) $direction;
+            $distance = (int) $distance;
 
             match ($direction) {
                 'forward' => $horizontal += $distance,
@@ -46,11 +44,9 @@ final class Day2 extends Solution
         $horizontal = 0;
 
         foreach ($data as $current) {
-            /**
-             * @var string $direction
-             * @var int    $distance
-             */
             [$direction, $distance] = explode(' ', $current);
+            $direction = (string) $direction;
+            $distance = (int) $distance;
 
             // Can't use 'match' here because of the multiple expressions for 'forward'.
             switch ($direction) {

@@ -2,7 +2,9 @@
 
 namespace trizz\AdventOfCode\Y23;
 
-final class Day5 extends \trizz\AdventOfCode\Solution
+use trizz\AdventOfCode\Solution;
+
+final class Day5 extends Solution
 {
     public static null|int|string $part1ExampleResult = 35;
 
@@ -45,6 +47,10 @@ final class Day5 extends \trizz\AdventOfCode\Solution
             $location = $this->valueInMap($humidity, 'humidity-to-location');
 
             $locations[$seed] = $location;
+        }
+
+        if ($locations === []) {
+            return -1;
         }
 
         return min($locations);
@@ -97,7 +103,7 @@ final class Day5 extends \trizz\AdventOfCode\Solution
             }
 
             if (!empty($line) && !str_contains($line, ':')) {
-                [$destinationRange, $sourceRangeStart, $rangeLength] = array_values(array_map('intval', explode(' ', $line)));
+                [$destinationRange, $sourceRangeStart, $rangeLength] = array_map('intval', explode(' ', $line));
                 $this->maps[$currentMap][] = [
                     'destinationRange' => $destinationRange,
                     'sourceRangeStart' => $sourceRangeStart,

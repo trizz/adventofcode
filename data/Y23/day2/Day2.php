@@ -69,7 +69,7 @@ final class Day2 extends Solution
     }
 
     /**
-     * @return array<int, array<int, string>>
+     * @return array{string, non-empty-list<string>}
      */
     private function getHand(string $line): array
     {
