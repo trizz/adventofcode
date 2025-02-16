@@ -1494,12 +1494,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "7014f6c1c322bb040c7db23ed44516b9a4535d20"
+                "reference": "738eb98a38a5897b48e44df7edc95f4fc705afee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/7014f6c1c322bb040c7db23ed44516b9a4535d20",
-                "reference": "7014f6c1c322bb040c7db23ed44516b9a4535d20",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/738eb98a38a5897b48e44df7edc95f4fc705afee",
+                "reference": "738eb98a38a5897b48e44df7edc95f4fc705afee",
                 "shasum": ""
             },
             "require": {
@@ -1532,7 +1532,7 @@
                 "issues": "https://github.com/doctrine/deprecations/issues",
                 "source": "https://github.com/doctrine/deprecations/tree/1.1.x"
             },
-            "time": "2024-12-20T07:18:16+00:00"
+            "time": "2025-02-10T14:53:34+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -1715,16 +1715,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.68.5",
+            "version": "v3.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "7bedb718b633355272428c60736dc97fb96daf27"
+                "reference": "630a59448c00729bc235d5e95cfedefeaca37523"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/7bedb718b633355272428c60736dc97fb96daf27",
-                "reference": "7bedb718b633355272428c60736dc97fb96daf27",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/630a59448c00729bc235d5e95cfedefeaca37523",
+                "reference": "630a59448c00729bc235d5e95cfedefeaca37523",
                 "shasum": ""
             },
             "require": {
@@ -1741,7 +1741,7 @@
                 "react/promise": "^2.0 || ^3.0",
                 "react/socket": "^1.0",
                 "react/stream": "^1.0",
-                "sebastian/diff": "^4.0 || ^5.1 || ^6.0",
+                "sebastian/diff": "^4.0 || ^5.1 || ^6.0 || ^7.0",
                 "symfony/console": "^5.4 || ^6.4 || ^7.0",
                 "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.0",
                 "symfony/filesystem": "^5.4 || ^6.4 || ^7.0",
@@ -1754,18 +1754,18 @@
                 "symfony/stopwatch": "^5.4 || ^6.4 || ^7.0"
             },
             "require-dev": {
-                "facile-it/paraunit": "^1.3.1 || ^2.4",
-                "infection/infection": "^0.29.8",
+                "facile-it/paraunit": "^1.3.1 || ^2.5",
+                "infection/infection": "^0.29.10",
                 "justinrainbow/json-schema": "^5.3 || ^6.0",
                 "keradus/cli-executor": "^2.1",
                 "mikey179/vfsstream": "^1.6.12",
                 "php-coveralls/php-coveralls": "^2.7",
                 "php-cs-fixer/accessible-object": "^1.1",
-                "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.5",
-                "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.5",
-                "phpunit/phpunit": "^9.6.22 || ^10.5.40 || ^11.5.2",
-                "symfony/var-dumper": "^5.4.48 || ^6.4.15 || ^7.2.0",
-                "symfony/yaml": "^5.4.45 || ^6.4.13 || ^7.2.0"
+                "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.6",
+                "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.6",
+                "phpunit/phpunit": "^9.6.22 || ^10.5.45 || ^11.5.7",
+                "symfony/var-dumper": "^5.4.48 || ^6.4.18 || ^7.2.0",
+                "symfony/yaml": "^5.4.45 || ^6.4.18 || ^7.2.0"
             },
             "suggest": {
                 "ext-dom": "For handling output formats in XML",
@@ -1806,7 +1806,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.68.5"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.69.0"
             },
             "funding": [
                 {
@@ -1814,7 +1814,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-01-30T17:00:50+00:00"
+            "time": "2025-02-14T16:19:23+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
@@ -5643,12 +5643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "724e6c68cc3cb7c618860a824e5cbda91815e374"
+                "reference": "2b42be26326a4fae4313751b40a2ecb60e619311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/724e6c68cc3cb7c618860a824e5cbda91815e374",
-                "reference": "724e6c68cc3cb7c618860a824e5cbda91815e374",
+                "url": "https://api.github.com/repos/symfony/process/zipball/2b42be26326a4fae4313751b40a2ecb60e619311",
+                "reference": "2b42be26326a4fae4313751b40a2ecb60e619311",
                 "shasum": ""
             },
             "require": {
@@ -5696,7 +5696,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-12-12T06:45:37+00:00"
+            "time": "2025-02-14T16:23:49+00:00"
         },
         {
             "name": "symfony/stopwatch",
